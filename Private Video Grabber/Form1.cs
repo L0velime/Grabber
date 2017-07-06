@@ -14,15 +14,17 @@ namespace Private_Video_Grabber
 
     public partial class Form1 : Form
     {
-        String idKeyString;
         String urlString;
         String newUrlString;
         String trimValue;
         int trimValueInt;
         String trimmedUrl;
         String trimmedID;
-        
-        
+        String fullUrlToSplit;
+        String videoName;
+
+
+
         public Form1()
         {
             InitializeComponent();
@@ -35,7 +37,7 @@ namespace Private_Video_Grabber
 
         private void idNumberTextBox_TextChanged(object sender, EventArgs e)
         {
-            idKeyString = idNumberTextBox.Text;
+
         }
 
         private void publicLabel_Click(object sender, EventArgs e)
@@ -64,16 +66,22 @@ namespace Private_Video_Grabber
 
         private void createUrlButton_Click(object sender, EventArgs e)
         {
-
+            newPrivateUrlTextBox.Clear();
+            char delimiter = '/';
+            string[] subUrls = fullUrlToSplit.Split(delimiter);
+            idNumberTextBox.Clear();
+            idNameTextBox.AppendText(subUrls[5]);
+            idNumberTextBox.AppendText(subUrls[4]);
+            videoName = subUrls[4];
             int MaxLength = trimValueInt;
-            trimmedID = idKeyString;
+            trimmedID = subUrls[4];
             if (trimmedID.Length > MaxLength)
                 trimmedID = trimmedID.Substring(0, MaxLength);
-            string newPrivateId = "file=%2F" + trimmedID + "000%2F" + idKeyString + "%2F" + idKeyString + ".mp4";
+            string newPrivateId = "file=%2F" + trimmedID + "000%2F" + subUrls[4] + "%2F" + subUrls[4] + ".mp4";
             newUrlString = trimmedUrl + newPrivateId;
             newPrivateUrlTextBox.AppendText(newUrlString);
             Clipboard.SetText(newUrlString);
-
+            
 
 
 
@@ -90,6 +98,32 @@ namespace Private_Video_Grabber
         private void copyUrlButton_Click(object sender, EventArgs e)
         {
             Clipboard.SetText(newUrlString);
+        }
+
+        private void idNumberTextBox_Enter(object sender, EventArgs e)
+        {
+        
+        }
+
+        private void idFullUrl_TextChanged(object sender, EventArgs e)
+        {
+            fullUrlToSplit = idFullUrl.Text;
+        }
+
+        private void idNameTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void idFullUrl_Enter(object sender, EventArgs e)
+        {
+            idFullUrl.Clear();
+        }
+
+        private void idNameTextBox_Enter(object sender, EventArgs e)
+        {
+            if (videoName != null)
+            Clipboard.SetText(videoName);
         }
     }
 }
