@@ -70,6 +70,7 @@ namespace Private_Video_Grabber
             char delimiter = '/';
             string[] subUrls = fullUrlToSplit.Split(delimiter);
             idNumberTextBox.Clear();
+            idNameTextBox.Clear();
             idNameTextBox.AppendText(subUrls[5]);
             idNumberTextBox.AppendText(subUrls[4]);
             videoName = subUrls[5];
