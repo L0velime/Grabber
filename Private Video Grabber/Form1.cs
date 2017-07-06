@@ -72,7 +72,7 @@ namespace Private_Video_Grabber
             idNumberTextBox.Clear();
             idNameTextBox.AppendText(subUrls[5]);
             idNumberTextBox.AppendText(subUrls[4]);
-            videoName = subUrls[4];
+            videoName = subUrls[5];
             int MaxLength = trimValueInt;
             trimmedID = subUrls[4];
             if (trimmedID.Length > MaxLength)
@@ -118,6 +118,7 @@ namespace Private_Video_Grabber
         private void idFullUrl_Enter(object sender, EventArgs e)
         {
             idFullUrl.Clear();
+            idFullUrl.AppendText(Clipboard.GetText());
         }
 
         private void idNameTextBox_Enter(object sender, EventArgs e)
