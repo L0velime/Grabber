@@ -7,7 +7,7 @@
     <ProjectGuid>{0560331D-950B-4870-BD53-E04CE731330A}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>Private_Video_Grabber</RootNamespace>
-    <AssemblyName>Private Video Grabber</AssemblyName>
+    <AssemblyName>Private Video Grabber 1.1</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
